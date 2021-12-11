@@ -1,29 +1,52 @@
 import React from 'react';
-import {StyleSheet, SafeAreaView, ScrollView} from 'react-native';
-import Menu from './src/component/Menu/Menu';
-import Swiper from './src/component/Swiper/index';
-import SecondKill from './src/component/SecondKill/index';
-import GoodsList from './src/component/GoodsList';
+import {View, Text, StyleSheet, Button} from 'react-native';
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
-const App = () => {
+function HomeScreen(props) {
+  const {navigation} = props;
   return (
-    <SafeAreaView style={styles.page}>
-      <ScrollView style={styles.page}>
-        <Swiper />
-        <Menu />
-        <SecondKill />
-        <GoodsList />
-      </ScrollView>
-    </SafeAreaView>
+    <View style={styles.container}>
+      <Text>Home Screen....</Text>
+      <Button
+        title="Go to Details"
+        onPress={() => {
+          console.log(props);
+          navigation.navigate('Details');
+        }}
+      />
+    </View>
   );
-};
+}
+
+function DetailsScreen() {
+  return (
+    <View style={styles.container}>
+      <Text>Details Screen</Text>
+    </View>
+  );
+}
+
+const Stack = createNativeStackNavigator();
+
+function App() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="HomeIndex" options={{title: '首页'}}>
+          {props => <HomeScreen {...props} />}
+        </Stack.Screen>
+        <Stack.Screen name="Details" component={DetailsScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
 
 const styles = StyleSheet.create({
-  page: {
+  container: {
     flex: 1,
-    padding: 10,
-    backgroundColor: 'aliceblue',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });
-
 export default App;
