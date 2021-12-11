@@ -247,6 +247,30 @@ function LogoTitle() {
 - 在初始化堆栈导航器配置时，可以默认全局配置， 当然options 优先级 高于screenOptions
 
 
+
+### Header buttons
+
+给header添加一个button 
+
+```jsx
+<Stack.Navigator>
+  <Stack.Screen
+    name="Home"
+    component={HomeScreen}
+    options={{
+      headerTitle: props => <LogoTitle {...props} />,
+      headerRight: () => (
+        <Button
+          onPress={() => alert('This is a button!')}
+          title="Info"
+          color="#fff"
+        />
+      ),
+    }}
+  />
+</Stack.Navigator>
+```
+
 ## 关于真机调试
 - xcode注册个人账号
 - 下载个人证书

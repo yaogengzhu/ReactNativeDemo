@@ -98,13 +98,6 @@ function App() {
           options={{
             title: '首页',
             headerTitle: props => <LogoTitle {...props} />,
-            headerRight: () => (
-              <Button
-                onPress={() => alert('This is a button!')}
-                title="Info"
-                color="#fff"
-              />
-            ),
           }}>
           {props => <HomeScreen {...props} />}
         </Stack.Screen>
