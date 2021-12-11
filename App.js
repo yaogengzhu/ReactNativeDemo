@@ -1,18 +1,26 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {View, Text, StyleSheet, Button} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 function HomeScreen(props) {
-  const {navigation} = props;
+  const {navigation, route} = props;
+
+  useEffect(() => {
+    if (route.params?.post) {
+      console.log(route.params.post);
+    }
+  }, [route.params]);
+
   return (
     <View style={styles.container}>
       <Text>Home Screen....</Text>
       <Button
         title="Go to Details"
         onPress={() => {
-          console.log(props);
-          navigation.navigate('Details');
+          navigation.navigate('Details', {
+            name: 'zhuyaogeng',
+          });
         }}
       />
     </View>
@@ -20,7 +28,11 @@ function HomeScreen(props) {
 }
 
 function DetailsScreen(props) {
-  const {navigation} = props;
+  const {navigation, route} = props;
+
+  useEffect(() => {
+    console.log(route.params);
+  }, [route]);
   return (
     <View style={styles.container}>
       <Text>Details Screen</Text>
@@ -28,6 +40,18 @@ function DetailsScreen(props) {
         title="返回"
         onPress={() => {
           navigation.goBack();
+        }}
+      />
+      <Button
+        title="更新参数"
+        onPress={() => {
+          // navigation.goBack();
+          // navigation.setParams({query: 'helloworld'});
+          navigation.navigate({
+            name: 'Home',
+            params: {post: 'hhelo'},
+            merge: true,
+          });
         }}
       />
     </View>
@@ -40,10 +64,14 @@ function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="HomeIndex" options={{title: '首页'}}>
+        <Stack.Screen name="Home" options={{title: '首页'}}>
           {props => <HomeScreen {...props} />}
         </Stack.Screen>
-        <Stack.Screen name="Details" component={DetailsScreen} />
+        <Stack.Screen
+          name="Details"
+          component={DetailsScreen}
+          initialParams={{itemId: 42}}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
