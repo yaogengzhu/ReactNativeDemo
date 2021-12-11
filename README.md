@@ -38,10 +38,17 @@ function HomeScreen(props) {
   );
 }
 
-function DetailsScreen() {
+function DetailsScreen(props) {
+  const {navigation} = props;
   return (
     <View style={styles.container}>
       <Text>Details Screen</Text>
+      <Button
+        title="返回"
+        onPress={() => {
+          navigation.goBack();
+        }}
+      />
     </View>
   );
 }
