@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, StyleSheet, SafeAreaView, ScrollView} from 'react-native';
+import {StyleSheet, SafeAreaView, ScrollView} from 'react-native';
 import Menu from './src/component/Menu/Menu';
 import Swiper from './src/component/Swiper/index';
 import SecondKill from './src/component/SecondKill/index';

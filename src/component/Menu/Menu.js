@@ -1,5 +1,12 @@
 import React from 'react';
-import {View, StyleSheet, Text, TouchableOpacity, Image} from 'react-native';
+import {
+  View,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  Image,
+  Pressable,
+} from 'react-native';
 const list = [
   {
     cateId: 910,
@@ -57,12 +64,7 @@ const Menu = () => {
   return (
     <View style={styles.row}>
       {list.map(item => (
-        <TouchableOpacity
-          onPress={() => {
-            // setCur(item);d
-          }}
-          style={[styles.menuBox]}
-          key={item.cateId}>
+        <TouchableOpacity style={[styles.menuBox]} key={item.cateId}>
           <Image
             style={styles.tinyLogo}
             source={{
