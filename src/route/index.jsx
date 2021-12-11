@@ -1,5 +1,11 @@
+/*
+ * @Author: yaogeng.zhu
+ * @Date: 2021-12-11 22:00:25
+ * @Last Modified by: yaogeng.zhu
+ * @Last Modified time: 2021-12-11 22:11:25
+ */
 import React, {useEffect} from 'react';
-import {View, Text, StyleSheet, Button, Image} from 'react-native';
+import {View, Text, StyleSheet, Button} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
@@ -27,18 +33,6 @@ function HomeScreen(props) {
   );
 }
 
-function LogoTitle() {
-  return (
-    <View style={{display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
-      <Image
-        style={{width: 50, height: 50}}
-        source={{uri: 'https://avatars.githubusercontent.com/u/42566669?v=4'}}
-      />
-      <Text style={{fontSize: 40, color: '#fff'}}>hello</Text>
-    </View>
-  );
-}
-
 function DetailsScreen(props) {
   const {navigation, route} = props;
 
@@ -57,8 +51,6 @@ function DetailsScreen(props) {
       <Button
         title="更新参数"
         onPress={() => {
-          // navigation.goBack();
-          // navigation.setParams({query: 'helloworld'});
           navigation.navigate({
             name: 'Home',
             params: {post: 'hhelo'},
@@ -66,53 +58,23 @@ function DetailsScreen(props) {
           });
         }}
       />
-      <Button
-        title="更新title"
-        onPress={() => {
-          console.log('执行');
-          navigation.setOptions({title: 'hello'});
-        }}
-      />
     </View>
   );
 }
 
-const Stack = createNativeStackNavigator(); // 路由栈
+const Stack = createNativeStackNavigator();
 
-function App() {
+function Index() {
   return (
     <NavigationContainer>
-      <Stack.Navigator
-        screenOptions={{
-          headerStyle: {
-            backgroundColor: '#f4511e',
-          },
-          headerTintColor: '#fff',
-          headerTitleStyle: {
-            fontWeight: 'bold',
-          },
-        }}
-        r>
-        <Stack.Screen
-          name="Home"
-          options={{
-            title: '首页',
-            headerTitle: props => <LogoTitle {...props} />,
-          }}>
+      <Stack.Navigator>
+        <Stack.Screen name="Home" options={{title: '首页'}}>
           {props => <HomeScreen {...props} />}
         </Stack.Screen>
         <Stack.Screen
           name="Details"
           component={DetailsScreen}
-          options={{
-            headerStyle: {
-              backgroundColor: 'blue',
-            },
-            headerTintColor: '#fff',
-            headerTitleStyle: {
-              fontWeight: 'bold',
-            },
-          }}
+          options={({route}) => ({title: route.params.name})}
         />
       </Stack.Navigator>
     </NavigationContainer>
@@ -126,4 +88,4 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
-export default App;
+export default Index;

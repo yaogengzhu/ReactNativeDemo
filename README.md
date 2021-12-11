@@ -152,6 +152,99 @@ useEffect(() => {
 - 可以使用navigation.setParams更新当前页面的参数
 - 初始参数可以通过Screen上的initialParams属性传递
 
+### header的一些参数options
+简单的标题
+```jsx
+<Stack.Screen
+  options={{ title: 'Hello World'}}
+/>
+```
+可以在传递参数方式，定义title, 上级路由跳转过来， 携带参数改变当前页面的标题
+```jsx
+<Stack.Screen
+  name="Profile"
+  component={ProfileScreen}
+  options={({ route }) => ({ title: route.params.name })}
+/>
+```
+
+- 如何更新页面的title，可以更新options
+
+```jsx
+<Button
+  title="更新title"
+  onPress={() => {
+    console.log('执行');
+    navigation.setOptions({title: 'hello'});
+  }}
+/>
+
+```
+
+
+### 调整header的样式
+三个属性
+- headerStyle： 可以设置title的背景色
+- headerTintColor
+- headerTitleStyle
+
+```jsx
+<Stack.Screen
+  name="Details"
+  component={DetailsScreen}
+  options={({route}) => ({
+    title: route.params.name,
+    headerStyle: {
+      backgroundColor: '#f4511e',
+    },
+    headerTintColor: '#fff',
+    headerTitleStyle: {
+      fontWeight: 'bold',
+    },
+  })}
+/>
+```
+
+### 设置默认header背景色和title颜色
+在`Navigator`中 设置screenOptions 设置统一配置
+```jsx
+<NavigationContainer>
+  <Stack.Navigator
+    screenOptions={{
+      headerStyle: {
+        backgroundColor: '#f4511e',
+      },
+      headerTintColor: '#fff',
+      headerTitleStyle: {
+        fontWeight: 'bold',
+      },
+    }}
+    r>
+    <Stack.Screen name="Home" options={{title: '首页'}}>
+      {props => <HomeScreen {...props} />}
+    </Stack.Screen>
+    <Stack.Screen name="Details" component={DetailsScreen} />
+  </Stack.Navigator>
+</NavigationContainer>
+```
+
+### 用自定义组件替换标题
+
+```js
+function LogoTitle() {
+  return (
+    <Image
+      style={{width: 50, height: 50}}
+      source={{uri: 'https://avatars.githubusercontent.com/u/42566669?v=4'}}
+    />
+  );
+}
+```
+
+### 总结
+- 可以在header上自定义标题
+- options 可以是一个对象或者函数，如果是一个函数时，当是一个函数时，会被提供一个带有导航和路由参数的对象
+- 在初始化堆栈导航器配置时，可以默认全局配置， 当然options 优先级 高于screenOptions
 
 
 ## 关于真机调试

@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {View, Text, StyleSheet, Button, Image} from 'react-native';
+import {View, Text, StyleSheet, Button} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
@@ -23,18 +23,6 @@ function HomeScreen(props) {
           });
         }}
       />
-    </View>
-  );
-}
-
-function LogoTitle() {
-  return (
-    <View style={{display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
-      <Image
-        style={{width: 50, height: 50}}
-        source={{uri: 'https://avatars.githubusercontent.com/u/42566669?v=4'}}
-      />
-      <Text style={{fontSize: 40, color: '#fff'}}>hello</Text>
     </View>
   );
 }
@@ -93,12 +81,7 @@ function App() {
           },
         }}
         r>
-        <Stack.Screen
-          name="Home"
-          options={{
-            title: '首页',
-            headerTitle: props => <LogoTitle {...props} />,
-          }}>
+        <Stack.Screen name="Home" options={{title: '首页'}}>
           {props => <HomeScreen {...props} />}
         </Stack.Screen>
         <Stack.Screen
