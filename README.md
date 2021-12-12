@@ -271,6 +271,45 @@ function LogoTitle() {
 </Stack.Navigator>
 ```
 
+### 可以在页面中使用setOptions 来触发按钮的事件
+
+```jsx
+useLayoutEffect(() => {
+  navigation.setOptions({
+    headerRight: () => (
+      <Button onPress={() => setCount(c => c + 1)} title="更新数字" />
+    ),
+  });
+}, [navigation]);
+```
+
+### 重写后退按钮
+ header API 内置很多方法
+```jsx
+const DetailsScreen = props => {
+const {navigation} = props;
+
+React.useLayoutEffect(() => {
+  navigation.setOptions({
+    headerRight: () => <Button title="type" />,
+    headerTitleAlign: 'center',
+    headerLeft: () => (
+      <Text
+        onPress={() => {
+          navigation.goBack();
+        }}>
+        GoBack
+      </Text>
+    ),
+  });
+}, [navigation]);
+```
+
+### 总结
+- 可以通过headerLeft 和 headerRight 自定义自己的标题的dom
+- 后退按钮是完全可以自定义的如果只想修改title，可以通过headerBackTitle， headerBackTitleStyle， headerBackImageSource 来修改
+-  可以为options 设置props来定义
+
 ## 关于真机调试
 - xcode注册个人账号
 - 下载个人证书

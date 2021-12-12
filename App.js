@@ -1,130 +1,74 @@
-import React, {useEffect} from 'react';
-import {View, Text, StyleSheet, Button, Image} from 'react-native';
+import React from 'react';
+import {View, StyleSheet, Button, Text, Alert} from 'react-native';
+
+// 创建路由
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
-function HomeScreen(props) {
-  const {navigation, route} = props;
+const Stack = createNativeStackNavigator();
 
-  useEffect(() => {
-    if (route.params?.post) {
-      console.log(route.params.post);
-    }
-  }, [route.params]);
+const HomeScreen = props => {
+  const {navigation} = props;
 
+  function goToDetail() {
+    navigation.navigate('Details');
+  }
   return (
     <View style={styles.container}>
-      <Text>Home Screen....</Text>
-      <Button
-        title="Go to Details"
-        onPress={() => {
-          navigation.navigate('Details', {
-            name: 'zhuyaogeng',
-          });
-        }}
-      />
+      <Button title="Home Screen" onPress={goToDetail} />
     </View>
   );
-}
+};
+const DetailsScreen = props => {
+  const {navigation} = props;
 
-function LogoTitle() {
+  React.useLayoutEffect(() => {
+    navigation.setOptions({
+      headerRight: () => <Button title="type" />,
+      headerTitleAlign: 'center',
+      headerLeft: () => (
+        <Text
+          onPress={() => {
+            navigation.goBack();
+          }}>
+          GoBack
+        </Text>
+      ),
+    });
+  }, [navigation]);
   return (
-    <View style={{display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
-      <Image
-        style={{width: 50, height: 50}}
-        source={{uri: 'https://avatars.githubusercontent.com/u/42566669?v=4'}}
-      />
-      <Text style={{fontSize: 40, color: '#fff'}}>hello</Text>
+    <View>
+      <Text>DetailsScreen</Text>
     </View>
   );
-}
+};
 
-function DetailsScreen(props) {
-  const {navigation, route} = props;
-
-  useEffect(() => {
-    console.log(route.params);
-  }, [route]);
-  return (
-    <View style={styles.container}>
-      <Text>Details Screen</Text>
-      <Button
-        title="返回"
-        onPress={() => {
-          navigation.goBack();
-        }}
-      />
-      <Button
-        title="更新参数"
-        onPress={() => {
-          // navigation.goBack();
-          // navigation.setParams({query: 'helloworld'});
-          navigation.navigate({
-            name: 'Home',
-            params: {post: 'hhelo'},
-            merge: true,
-          });
-        }}
-      />
-      <Button
-        title="更新title"
-        onPress={() => {
-          console.log('执行');
-          navigation.setOptions({title: 'hello'});
-        }}
-      />
-    </View>
-  );
-}
-
-const Stack = createNativeStackNavigator(); // 路由栈
-
-function App() {
+const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator
         screenOptions={{
-          headerStyle: {
-            backgroundColor: '#f4511e',
-          },
-          headerTintColor: '#fff',
-          headerTitleStyle: {
-            fontWeight: 'bold',
-          },
-        }}
-        r>
+          headerTitleAlign: 'center',
+        }}>
         <Stack.Screen
           name="Home"
           options={{
             title: '首页',
-            headerTitle: props => <LogoTitle {...props} />,
             headerRight: () => (
               <Button
-                onPress={() => alert('This is a button!')}
+                onPress={() => Alert.alert('This is a button!')}
                 title="Info"
-                color="#fff"
+                color="red"
               />
             ),
           }}>
           {props => <HomeScreen {...props} />}
         </Stack.Screen>
-        <Stack.Screen
-          name="Details"
-          component={DetailsScreen}
-          options={{
-            headerStyle: {
-              backgroundColor: 'blue',
-            },
-            headerTintColor: '#fff',
-            headerTitleStyle: {
-              fontWeight: 'bold',
-            },
-          }}
-        />
+        <Stack.Screen name="Details" component={DetailsScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -133,4 +77,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
 export default App;
