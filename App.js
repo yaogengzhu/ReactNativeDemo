@@ -1,44 +1,49 @@
 import React from 'react';
-import {View, StyleSheet, Button, Text, Alert} from 'react-native';
-
-// 创建路由
+import {View, Text, StyleSheet, Button} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
 const Stack = createNativeStackNavigator();
+const Tab = createBottomTabNavigator();
 
-const HomeScreen = props => {
+const Feed = props => {
   const {navigation} = props;
-
-  function goToDetail() {
-    navigation.navigate('Details');
-  }
   return (
     <View style={styles.container}>
-      <Button title="Home Screen" onPress={goToDetail} />
+      {/* <Text>Home</Text> */}
+      <Button
+        title="查看"
+        onPress={() => {
+          console.log(navigation);
+          navigation.navigate('Detail');
+        }}
+      />
     </View>
   );
 };
-const DetailsScreen = props => {
-  const {navigation} = props;
 
-  React.useLayoutEffect(() => {
-    navigation.setOptions({
-      headerRight: () => <Button title="type" />,
-      headerTitleAlign: 'center',
-      headerLeft: () => (
-        <Text
-          onPress={() => {
-            navigation.goBack();
-          }}>
-          GoBack
-        </Text>
-      ),
-    });
-  }, [navigation]);
+const Messages = () => {
   return (
     <View>
-      <Text>DetailsScreen</Text>
+      <Text>hello</Text>
+    </View>
+  );
+};
+
+const Home = () => {
+  return (
+    <Tab.Navigator>
+      <Tab.Screen name="Feed" component={Feed} />
+      <Tab.Screen name="Messages" component={Messages} />
+    </Tab.Navigator>
+  );
+};
+
+const Detail = () => {
+  return (
+    <View style={styles.container}>
+      <Text>Detail</Text>
     </View>
   );
 };
@@ -52,19 +57,10 @@ const App = () => {
         }}>
         <Stack.Screen
           name="Home"
-          options={{
-            title: '首页',
-            headerRight: () => (
-              <Button
-                onPress={() => Alert.alert('This is a button!')}
-                title="Info"
-                color="red"
-              />
-            ),
-          }}>
-          {props => <HomeScreen {...props} />}
-        </Stack.Screen>
-        <Stack.Screen name="Details" component={DetailsScreen} />
+          component={Home}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen name="Detail" component={Detail} />
       </Stack.Navigator>
     </NavigationContainer>
   );
@@ -77,5 +73,4 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
-
 export default App;
