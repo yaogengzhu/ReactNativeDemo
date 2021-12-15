@@ -14,6 +14,8 @@ yarn ios
 ```
 
 
+## 20个视图相关组件，Android 和 iOS 各原生组件两个
+
 ## React 如何创建路由
 
 ```jsx
