@@ -1,17 +1,17 @@
-import React from 'react';
-import {WebView} from 'react-native-webview';
-import {SafeAreaView, StyleSheet} from 'react-native';
+import React, {useEffect} from 'react';
+import {SafeAreaView, View, Text} from 'react-native';
 
 const App = () => {
+  useEffect(() => {
+    console.log('ok');
+  }, []);
   return (
-    <SafeAreaView style={styles.container}>
-      <WebView source={{uri: 'https://mpt-dev.bthome.com/crm/#/login'}} />
+    <SafeAreaView>
+      <View>
+        <Text>测试</Text>
+      </View>
     </SafeAreaView>
   );
 };
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});
+
 export default App;
