@@ -7,7 +7,13 @@ const Stack = createNativeStackNavigator();
 
 const NotLogin = () => (
   <Stack.Navigator>
-    <Stack.Screen name="Login" component={Login} />
+    <Stack.Screen
+      name="Login"
+      options={{
+        title: '登录',
+      }}
+      component={Login}
+    />
   </Stack.Navigator>
 );
 
