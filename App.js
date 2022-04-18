@@ -1,11 +1,13 @@
 import React from 'react';
-import {View, Text, SafeAreaView} from 'react-native';
+import {SafeAreaProvider} from 'react-native-safe-area-context';
+
+import {View, Text} from 'react-native';
 import Router from './src/Router';
 const App = () => {
   return (
-    <SafeAreaView style={{flex: 1}}>
+    <SafeAreaProvider style={{flex: 1}}>
       <Router />
-    </SafeAreaView>
+    </SafeAreaProvider>
   );
 };
 
