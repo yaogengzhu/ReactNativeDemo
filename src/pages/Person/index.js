@@ -1,26 +1,34 @@
 import React from 'react';
 import {View, Text} from 'react-native';
-import {Header} from '@rneui/themed';
-import {ListItem, Icon} from '@rneui/themed';
-
+import {Header, ListItem, Icon} from '@rneui/themed';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 
 const Person = () => {
   const list = [
     {
-      title: 'Appointments',
-      icon: 'send',
+      title: '个人信息',
+      icon: 'person',
     },
     {
-      title: 'Trips',
-      icon: 'send',
+      title: '任职受雇信息',
+      icon: 'person',
+    },
+    {
+      title: '家庭成员信息',
+      icon: 'person',
     },
   ];
 
   return (
     <SafeAreaProvider>
       {list.map((item, i) => (
-        <ListItem key={i} bottomDivider>
+        <ListItem
+          activeScale={0.95} //
+          key={i}
+          bottomDivider
+          onPress={() => {
+            console.log('ok');
+          }}>
           <Icon name={item.icon} />
           <ListItem.Content>
             <ListItem.Title>{item.title}</ListItem.Title>
