@@ -4,8 +4,9 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {Icon} from '@rneui/themed';
 
 import Home from '../pages/Home';
-import Settings from '../pages/Settings';
+import Tax from '../pages/Tax';
 import Person from '../pages/Person';
+import Service from '../pages/Service';
 
 const Tab = createBottomTabNavigator();
 
@@ -15,8 +16,10 @@ const TabHome = () => {
     switch (name) {
       case 'Home':
         return 'home';
-      case 'Settings':
-        return 'settings';
+      case 'Tax':
+        return 'list';
+      case 'Service':
+        return 'mood';
       case 'Person':
         return 'person';
       default:
@@ -30,7 +33,7 @@ const TabHome = () => {
         tabBarIcon: ({focused, color, size}) => {
           return <Icon name={getIconName(route)} size={size} color={color} />;
         },
-        tabBarActiveTintColor: 'tomato',
+        tabBarActiveTintColor: '#2177b8',
         tabBarInactiveTintColor: 'gray',
       })}>
       <Tab.Screen
@@ -41,17 +44,23 @@ const TabHome = () => {
         }}
       />
       <Tab.Screen
-        name="Settings"
+        name="Tax"
         options={{
-          title: '设置',
+          title: '办税',
         }}
-        component={Settings}
+        component={Tax}
+      />
+      <Tab.Screen
+        name="Service"
+        options={{
+          title: '服务',
+        }}
+        component={Service}
       />
       <Tab.Screen
         name="Person"
         options={{
           title: '个人中心',
-          // headerShown: false,
         }}
         component={Person}
       />

@@ -1,10 +1,9 @@
-import React from 'react';
-import {View, Text} from 'react-native';
+import React, {useEffect} from 'react';
+import {View, Text, SafeAreaView} from 'react-native';
 import {Header, ListItem, Icon} from '@rneui/themed';
-import {SafeAreaProvider} from 'react-native-safe-area-context';
 
-const Person = () => {
-  const list = [
+const getMenulist = () => {
+  return [
     {
       title: '个人信息',
       icon: 'person',
@@ -18,10 +17,23 @@ const Person = () => {
       icon: 'person',
     },
   ];
+};
+
+const Person = props => {
+  useEffect(() => {
+    const {navigation} = props;
+
+    navigation.setOptions({
+      title: '个人中心',
+      headerStyle: {
+        // backgroundColor: 'red',
+      },
+    });
+  }, []);
 
   return (
-    <SafeAreaProvider>
-      {list.map((item, i) => (
+    <SafeAreaView>
+      {getMenulist().map((item, i) => (
         <ListItem
           activeScale={0.95} //
           key={i}
@@ -36,7 +48,7 @@ const Person = () => {
           <ListItem.Chevron />
         </ListItem>
       ))}
-    </SafeAreaProvider>
+    </SafeAreaView>
   );
 };
 

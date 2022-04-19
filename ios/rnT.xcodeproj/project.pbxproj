@@ -504,7 +504,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = yaogeng.top;
+				PRODUCT_BUNDLE_IDENTIFIER = yaogengzhu;
 				PRODUCT_NAME = rnT;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -533,7 +533,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = yaogeng.top;
+				PRODUCT_BUNDLE_IDENTIFIER = yaogengzhu;
 				PRODUCT_NAME = rnT;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
