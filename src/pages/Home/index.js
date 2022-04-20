@@ -7,60 +7,26 @@ import {
   NativeModules,
   StatusBar,
 } from 'react-native';
-import {Button, Image} from '@rneui/base';
+
 import {Input} from '@rneui/themed';
 import Header from './modules/Header';
-import b1 from '../../assets/images/b1.jpeg';
-import b2 from '../../assets/images/b2.jpeg';
-import b3 from '../../assets/images/b3.jpeg';
+import Slideshow from './modules/Slideshow';
+import SubMenu from './modules/SubMenu';
 import PullToRefefresh from '../Components/PullToRefresh';
-import Swiper from 'react-native-swiper';
 
 const Home = props => {
   return (
-    <View style={{flex: 1}}>
+    <View style={{flex: 1, backgroundColor: '#fff'}}>
       <Header />
       <StatusBar barStyle="light-content" />
       <PullToRefefresh>
-        <Swiper loop autoplay>
-          <Image source={b1} style={styles.img} />
-          <Image source={b2} style={styles.img} />
-          <Image source={b3} style={styles.img} />
-        </Swiper>
+        <Slideshow />
+        <SubMenu />
       </PullToRefefresh>
     </View>
   );
 };
 
-const styles = StyleSheet.create({
-  titleBarWrapper: {
-    display: 'flex',
-    flex: 1,
-    flexDirection: 'column',
-    zIndex: 100,
-    height: 1000,
-    width: '100%',
-  },
-  titleBarContent: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    width: '100%',
-    height: 50,
-  },
-  titleBarBg: {
-    position: 'absolute',
-    top: 0,
-    height: '100%',
-    width: '100%',
-    backgroundColor: '#fff',
-  },
-  imgContent: {
-    overflow: 'hidden',
-  },
-  img: {
-    width: '100%',
-    height: 300,
-  },
-});
+const styles = StyleSheet.create({});
 
 export default Home;

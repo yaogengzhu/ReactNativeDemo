@@ -55,6 +55,7 @@ const TabHome = () => {
         name="Service"
         options={{
           title: '服务',
+          headerShown: false,
         }}
         component={Service}
       />
