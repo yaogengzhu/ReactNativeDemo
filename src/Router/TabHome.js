@@ -40,6 +40,7 @@ const TabHome = () => {
         name="Home"
         component={Home}
         options={{
+          headerShown: false,
           title: '首页',
         }}
       />

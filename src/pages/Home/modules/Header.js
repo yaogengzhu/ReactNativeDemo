@@ -14,13 +14,16 @@ const Header = () => {
 
 const styles = StyleSheet.create({
   header: {
+    position: 'absolute',
+    top: 47,
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
     width: '100%',
     height: 40,
-    backgroundColor: 'blue',
+    backgroundColor: 'transparent',
     paddingHorizontal: 10,
+    zIndex: 2,
   },
   title: {
     fontSize: 18,
