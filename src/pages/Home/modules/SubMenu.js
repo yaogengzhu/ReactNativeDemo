@@ -40,7 +40,7 @@ const SubMenu = () => {
 
 const styles = StyleSheet.create({
   content: {
-    marginTop: -50,
+    marginTop: -60,
     paddingHorizontal: 10,
   },
   box: {
