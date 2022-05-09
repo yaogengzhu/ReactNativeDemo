@@ -1,12 +1,5 @@
 import React, {useEffect} from 'react';
-import {
-  View,
-  Text,
-  SafeAreaView,
-  StyleSheet,
-  NativeModules,
-  StatusBar,
-} from 'react-native';
+import {View, Text, SafeAreaView, StyleSheet} from 'react-native';
 
 import {Input} from '@rneui/themed';
 import Header from './modules/Header';
@@ -16,14 +9,11 @@ import PullToRefefresh from '../Components/PullToRefresh';
 
 const Home = props => {
   return (
-    <View style={{flex: 1, backgroundColor: '#fff'}}>
-      <Header />
-      <StatusBar barStyle="light-content" />
-      <PullToRefefresh>
-        <Slideshow />
-        <SubMenu />
-      </PullToRefefresh>
-    </View>
+    <SafeAreaView style={{flex: 1}}>
+      <View>
+        <Text>Home</Text>
+      </View>
+    </SafeAreaView>
   );
 };
 
