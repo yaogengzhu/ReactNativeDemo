@@ -1,28 +1,27 @@
-import React, {useEffect} from 'react';
-import {View, Text, SafeAreaView, StyleSheet} from 'react-native';
+import React from 'react';
+import {useToast, Button, View} from 'native-base';
+import BoxDemo from './demo/BoxDemo';
+import FabDemo from './demo/FabDemo';
+import ActionsheetDemo from './demo/ActionsheetDemo'
 
-import {Box} from 'native-base';
-
-const Home = props => {
+const Index = () => {
+  const toast = useToast();
   return (
-    <SafeAreaView style={{flex: 1}}>
-      <View>
-        <Box
-          alignSelf="center"
-          bg="primary.500"
-          _text={{
-            fontSize: 'md',
-            fontWeight: 'medium',
-            color: 'warmGray.50',
-            letterSpacing: 'lg',
-          }}>
-          This is a Box
-        </Box>
-      </View>
-    </SafeAreaView>
+    <View>
+      <BoxDemo />
+      <FabDemo />
+      <ActionsheetDemo />
+      <Button
+        onPress={() =>
+          toast.show({
+            title: '系统错误',
+            render: () => <Button>按钮</Button>,
+          })
+        }>
+        Top
+      </Button>
+    </View>
   );
 };
 
-const styles = StyleSheet.create({});
-
-export default Home;
+export default Index;
