@@ -3,6 +3,7 @@ import {useToast, Button, View, useClipboard} from 'native-base';
 import BoxDemo from './demo/BoxDemo';
 import FabDemo from './demo/FabDemo';
 import ActionsheetDemo from './demo/ActionsheetDemo';
+import RadioDemo from './demo/RadioDemo'
 
 const Index = () => {
   const toast = useToast();
@@ -26,6 +27,7 @@ const Index = () => {
       <BoxDemo />
       <FabDemo />
       <ActionsheetDemo />
+      <RadioDemo />
       <Button onPress={() => toCopy()}>Top</Button>
       {/* 复制 */}
     </View>
