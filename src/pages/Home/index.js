@@ -1,12 +1,18 @@
-import React from 'react';
-import {View, Text} from 'react-native';
-import DropDown from '../Components/DropDown';
+import React, {useRef} from 'react';
+import {SafeAreaView, Button} from 'react-native';
+import RnDialog from '../../component/Dialog';
 
 const Index = () => {
+  const dialogRef = useRef()
+
+
   return (
-    <View>
-      <DropDown />
-    </View>
+    <SafeAreaView>
+      <Button title='open' onPress={() => {
+        dialogRef.current.open()
+      }} />
+      <RnDialog ref={dialogRef} />
+    </SafeAreaView>
   );
 };
 

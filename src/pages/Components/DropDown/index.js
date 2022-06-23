@@ -13,7 +13,6 @@ const DropDown = () => {
   const [show, setShow] = useState(false);
 
   const fadeAnim = useRef(new Animated.Value(0)).current;
-
   const startViewAnimation = () => {
     Animated.spring(
       //定义弹性动画
