@@ -12,6 +12,8 @@ target 'rnT' do
     # to enable hermes on iOS, change `false` to `true` and then install pods
     :hermes_enabled => false
   )
+  pod 'RNCPicker', :path => '../node_modules/@react-native-picker/picker'
+
   target 'rnTTests' do
     inherit! :complete
     # Pods for testing

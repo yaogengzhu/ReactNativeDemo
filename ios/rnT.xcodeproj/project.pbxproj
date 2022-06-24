@@ -13,6 +13,7 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		55E98F557E5BEAED8AE3D8D8 /* libPods-rnT.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B3FD6F225C5AA08DC4E0A7C0 /* libPods-rnT.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		B51EC2F128660E0B000EF8C3 /* ios in Resources */ = {isa = PBXBuildFile; fileRef = B51EC2F028660E0B000EF8C3 /* ios */; };
 		BD274D9551BDA63CCA8A494B /* libPods-rnT-rnTTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DDF9FD030AD704BC41F060B9 /* libPods-rnT-rnTTests.a */; };
 		CEDAFCE9280D6CB300CFC3F1 /* Fonts in Resources */ = {isa = PBXBuildFile; fileRef = CEDAFCE8280D6CB300CFC3F1 /* Fonts */; };
 /* End PBXBuildFile section */
@@ -43,6 +44,7 @@
 		7A391C4499374C7F14E8C690 /* Pods-rnT.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rnT.debug.xcconfig"; path = "Target Support Files/Pods-rnT/Pods-rnT.debug.xcconfig"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = rnT/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B3FD6F225C5AA08DC4E0A7C0 /* libPods-rnT.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-rnT.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B51EC2F028660E0B000EF8C3 /* ios */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ios; sourceTree = "<group>"; };
 		CEDAFCE8280D6CB300CFC3F1 /* Fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Fonts; path = "../node_modules/react-native-vector-icons/Fonts"; sourceTree = "<group>"; };
 		DDF9FD030AD704BC41F060B9 /* libPods-rnT-rnTTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-rnT-rnTTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
@@ -122,6 +124,7 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				B51EC2F028660E0B000EF8C3 /* ios */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -247,6 +250,7 @@
 			files = (
 				CEDAFCE9280D6CB300CFC3F1 /* Fonts in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
+				B51EC2F128660E0B000EF8C3 /* ios in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
