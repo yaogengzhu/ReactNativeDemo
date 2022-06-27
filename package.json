@@ -38,6 +38,7 @@
     "react-native-swiper": "^1.6.0",
     "react-native-vector-icons": "^9.1.0",
     "react-native-webview": "^11.15.0",
+    "rn-picker-modal": "^1.0.0",
     "underscore": "^1.13.3"
   },
   "devDependencies": {

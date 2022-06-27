@@ -1,6 +1,6 @@
 import React, {useRef} from 'react';
 import {SafeAreaView, Button} from 'react-native';
-import DataPicker from '../Components/DataPicker';
+import { DataPicker } from 'rn-picker-modal'
 
 const Index = () => {
   const dateRef = useRef();
