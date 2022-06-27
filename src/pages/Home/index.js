@@ -1,6 +1,5 @@
 import React, {useRef} from 'react';
-import {SafeAreaView, Button, Text} from 'react-native';
-import RnDialog from '../../component/Dialog';
+import {SafeAreaView, Button} from 'react-native';
 import DataPicker from '../Components/DataPicker';
 
 const Index = () => {
