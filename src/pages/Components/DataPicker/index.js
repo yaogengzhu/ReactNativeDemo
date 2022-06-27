@@ -2,11 +2,11 @@ import React, {useState, useImperativeHandle} from 'react';
 import {View} from 'react-native';
 import Modal from 'react-native-modal';
 import styles from './index.styles';
-import DataPickerView from './modules/DataPikerView'
+import DataPickerView from './modules/DataPikerView';
+import Header from './modules/Header';
 
 const DataPicker = React.forwardRef((props, ref) => {
   const [isModalVisible, setModalVisible] = useState(true);
-
 
   const toggleModal = () => {
     setModalVisible(!isModalVisible);
@@ -16,8 +16,6 @@ const DataPicker = React.forwardRef((props, ref) => {
     toggleModal,
   }));
 
-
-
   return (
     <Modal
       onBackdropPress={toggleModal}
@@ -25,6 +23,7 @@ const DataPicker = React.forwardRef((props, ref) => {
       backdropOpacity={0.4}
       isVisible={isModalVisible}>
       <View style={styles.content}>
+        <Header />
         <DataPickerView />
       </View>
     </Modal>

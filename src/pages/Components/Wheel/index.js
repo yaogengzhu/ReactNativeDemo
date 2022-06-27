@@ -14,8 +14,8 @@ const Wheel = props => {
   }, [position]);
 
   useEffect(() => {
-    const index = data.findIndex(v => v === currentValue)
-    setPosition(index)
+    const index = data.findIndex(v => v === currentValue);
+    setPosition(index);
   }, [currentValue]);
 
   const onEndScroll = e => {
@@ -39,7 +39,13 @@ const Wheel = props => {
           {data.map((v, index) => (
             <View key={v} style={styles.item(itemHeight)}>
               <Text style={styles.itemText(position === index)}>{v}</Text>
-              <Text style={{marginLeft: 4}}>{extra}</Text>
+              <Text
+                style={{
+                  marginLeft: 4,
+                  ...styles.itemText(position === index),
+                }}>
+                {extra}
+              </Text>
             </View>
           ))}
         </View>
