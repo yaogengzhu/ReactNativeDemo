@@ -7,7 +7,12 @@ const Index = () => {
 
   return (
     <SafeAreaView style={{flex: 1}}>
-      <DataPicker ref={dateRef} />
+      <DataPicker
+        ref={dateRef}
+        onConfirm={date => {
+          console.log(date);
+        }}
+      />
       <Button
         title="open"
         onPress={() => {
