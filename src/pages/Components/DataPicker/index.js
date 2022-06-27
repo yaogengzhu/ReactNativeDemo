@@ -19,7 +19,7 @@ const DataPicker = React.forwardRef((props, ref) => {
     setYear(y);
     setMonth(m);
     setDay(d);
-  }, [date]);
+  }, [date, isModalVisible]);
 
   const getYears = useMemo(() => {
     const years = [];
