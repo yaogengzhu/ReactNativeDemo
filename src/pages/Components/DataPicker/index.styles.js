@@ -13,6 +13,11 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     backgroundColor: '#fff',
   },
+  header: {
+    flexDirection: 'column',
+    width: '100%',
+    height: 48,
+  },
 })
 
 export default styles

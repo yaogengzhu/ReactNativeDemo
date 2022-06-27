@@ -2,10 +2,11 @@ import React, {useState, useImperativeHandle} from 'react';
 import {View} from 'react-native';
 import Modal from 'react-native-modal';
 import styles from './index.styles';
-import Wheel from './Wheel';
+import DataPickerView from './modules/DataPikerView'
 
-const DataPicker = React.forwardRef((_, ref) => {
+const DataPicker = React.forwardRef((props, ref) => {
   const [isModalVisible, setModalVisible] = useState(true);
+
 
   const toggleModal = () => {
     setModalVisible(!isModalVisible);
@@ -15,6 +16,8 @@ const DataPicker = React.forwardRef((_, ref) => {
     toggleModal,
   }));
 
+
+
   return (
     <Modal
       onBackdropPress={toggleModal}
@@ -22,15 +25,14 @@ const DataPicker = React.forwardRef((_, ref) => {
       backdropOpacity={0.4}
       isVisible={isModalVisible}>
       <View style={styles.content}>
-        <View style={{flexDirection: 'row', flex: 1, width: '100%'}}>
-          <Wheel />
-          <Wheel />
-          <Wheel />
-          <Wheel />
-        </View>
+        <DataPickerView />
       </View>
     </Modal>
   );
 });
 
 export default DataPicker;
+
+DataPicker.defaultProps = {
+  onConfirm: () => {},
+};
