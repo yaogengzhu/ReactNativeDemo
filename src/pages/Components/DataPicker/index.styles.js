@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
   },
   content: {
     width: '100%',
-    height: 600,
+    height: 400,
     bottom: 0,
     position: 'absolute',
     borderRadius: 5,

@@ -16,6 +16,10 @@ const DataPicker = React.forwardRef((props, ref) => {
     toggleModal,
   }));
 
+  const onHeaderCancel = () => {
+    setModalVisible(false);
+  };
+
   return (
     <Modal
       onBackdropPress={toggleModal}
@@ -23,7 +27,7 @@ const DataPicker = React.forwardRef((props, ref) => {
       backdropOpacity={0.4}
       isVisible={isModalVisible}>
       <View style={styles.content}>
-        <Header />
+        <Header onHeaderCancel={onHeaderCancel} />
         <DataPickerView />
       </View>
     </Modal>
@@ -34,4 +38,5 @@ export default DataPicker;
 
 DataPicker.defaultProps = {
   onConfirm: () => {},
+  onCancel: () => {},
 };
