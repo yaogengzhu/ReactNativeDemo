@@ -39,6 +39,7 @@
     "react-native-vector-icons": "^9.1.0",
     "react-native-webview": "^11.15.0",
     "rn-picker-modal": "^1.0.0",
+    "rn-text-highlight": "^1.0.4",
     "underscore": "^1.13.3"
   },
   "devDependencies": {
